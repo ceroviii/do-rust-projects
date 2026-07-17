@@ -1,9 +1,10 @@
-use crate::parser::LineType;
+use crate::parser::{self, LineType};
 
-pub fn render(lines: String, file_name: String) -> String {
+pub fn render(content: String, file_name: String) -> String {
     let body = String::new();
 
     // render
+    //parser::classify_line()
 
     format!(
         r#"<!DOCTYPE html>
