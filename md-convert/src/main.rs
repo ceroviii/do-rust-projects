@@ -34,16 +34,16 @@ fn main() {
         return;
     }
 
-    let mut rendered_result = String::new();
+    // let mut rendered_result = String::new();
     // process content from src_file
     if let Ok(src_content) = fs::read_to_string(&src_file) {
-        rendered_result = renderer::render(src_content, src_file);
+        let rendered_result = renderer::render(src_content, src_file);
+        // save processed content to dest_file
+        fs::write(dest_file, rendered_result).expect("\x1b[31m(Err): File Not Found");
     } else {
         println!("\x1b31m(x) Error occured while reading file!");
         return;
     }
 
-    // save processed content to dest_file
-    fs::write(dest_file, rendered_result).expect("\x1b[31m(Err): File Not Found");
     //println!("{} -> {}", src_file, dest_file)
 }
